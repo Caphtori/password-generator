@@ -105,3 +105,26 @@ function getCharacter(){
   };
    
 };
+
+
+// Repeater Functions
+
+let isRepeat = true;
+let isRepeatAdjascent = true;
+
+function repeater (length){
+  if (!confirm("Enable repeated characters?")){
+    if (confirm("Disable repeated characters: \n Entire Password[OK] \n Only adjascent Characters[Cancel]")){
+      if (length>masterArray.array.length){
+        window.alert("ERROR: PASSWORD LENGTH EXCEEDS AVAILABLE CHARACTERS.");
+        repeater()
+      } else {
+        isRepeat = false;
+      };
+
+    } else {
+      isRepeatAdjascent = false;
+    };
+  };
+  return;
+};
