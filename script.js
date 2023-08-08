@@ -128,3 +128,17 @@ function repeater (length){
   };
   return;
 };
+
+function repeaterCheck(str, char){
+  if (!isRepeat){
+    if (str.includes(char)){
+      return false;
+    };
+  } else if (!isRepeatAdjascent){
+    if (str.slice(-1)===char){
+      return false;
+    };
+  }
+  return true;
+  
+};
