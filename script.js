@@ -16,23 +16,24 @@
 
 // Length Function
 function getLength(){
-  let chosenLength = prompt("Choose number of characters in password (must be between 8 and 128 characters).");
-  let parsedInput = parseFloat(chosenLength)
-  if (isNaN(parsedInput)){
-    window.alert("ERROR: PASSWORD MUST BE A NUMBER.");
-    getLength();
-  } else if (!Number.isInteger(parsedInput)){
-    window.alert("ERROR: PASSWORD MUST BE A WHOLE NUMBER.");
-    getLength();
-  } else if (parsedInput<8){
-    window.alert("ERROR: PASSWORD MUST BE MORE THAN 8 CHARACTERS.");
-    getLength();
-  } else if (parsedInput>128){
-    window.alert("ERROR: PASSWORD MUST BE LESS THAN 128 CHARACTERS.");
-    getLength();
+  var chosenLength = prompt("Choose number of characters in password (must be between 8 and 128 characters).");
+  if (chosenLength===null){
+    return "cancel";
+  } else if (chosenLength===""){
+    return false;
   } else {
-    // return parsedInput
-    window.alert("Your password will be " + parsedInput + " characters long.");
+  var parsedInput = parseFloat(chosenLength)
+    if (isNaN(parsedInput)){
+      return false;
+    } else if (!Number.isInteger(parsedInput)){
+      return false;
+    } else if (parsedInput<8){
+      return false;
+    } else if (parsedInput>128){
+      return false;
+    } else {
+      return parsedInput;
+    };
   };
 
 };
