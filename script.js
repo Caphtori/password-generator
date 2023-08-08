@@ -45,6 +45,11 @@ let masterArray = {
   add: function(input){
     this.array = this.array.concat(input.array);
     this.components.push(input);
+  
+  },
+  clear: function(){
+    this.array =[];
+    this.components=[];
   }
 
 };
