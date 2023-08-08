@@ -94,27 +94,30 @@ function masterCompiler(){
 function coinflip(){
   let coin = Math.floor(Math.random()*2);
   if (coin>0){
-    return true
+    return true;
   } else {
-    return false
-  }
-}
+    return false;
+  };
+};
 
-function getCharacter(){
+function getCharacter(word){
   let choice = masterArray.array[Math.floor(Math.random()*masterArray.array.length)];
   if (lowers.array.includes(choice)){
-    if (masterArray.components.includes(uppers)){
+    if (masterArray.components.includes(uppers)&&masterArray.components.includes(lowers)){
       let outcome = coinflip()
       if (outcome){
-        return choice.toUpperCase()
-      } else {
-        return choice;
+        choice=choice.toUpperCase();
       };
-    } else {
-      return choice;
+    } else if (masterArray.components.includes(uppers)){
+      choice=choice.toUpperCase();
     };
-  } else {
+  };
+
+  let repVar = repeaterCheck(word, choice);
+  if (repVar){
     return choice;
+  } else {
+    return false;
   };
    
 };
