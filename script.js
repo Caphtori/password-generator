@@ -1,3 +1,42 @@
+let masterArray = {
+  array: [],
+  components: [],
+  add: function(input){
+    this.array = this.array.concat(input.array);
+    this.components.push(input);
+  
+  },
+  clear: function(){
+    this.array =[];
+    this.components=[];
+  }
+
+};
+
+class chars {
+  constructor(array, label){
+    this.array = array;
+    this.label = label;
+  }
+};
+
+class letters{
+  constructor(label){
+    this.array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    this.label = label;
+  }
+};
+
+const lowers = new letters("Lowercase letters?");
+const uppers = new letters("Uppercase letters?");
+const nums = new chars(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], "Numbers?");
+const symbs = new chars(["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", "'", '"', ",", ".", "<", ">", "/", "?"], "Symbols?");
+
+let isRepeat = true;
+let isRepeatAdjascent = true;
+
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -44,39 +83,7 @@ function getLength(){
 
 
 // Character Inclusion Functions
-let masterArray = {
-  array: [],
-  components: [],
-  add: function(input){
-    this.array = this.array.concat(input.array);
-    this.components.push(input);
-  
-  },
-  clear: function(){
-    this.array =[];
-    this.components=[];
-  }
 
-};
-
-class chars {
-  constructor(array, label){
-    this.array = array;
-    this.label = label;
-  }
-};
-
-class letters{
-  constructor(label){
-    this.array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    this.label = label;
-  }
-};
-
-const lowers = new letters("Lowercase letters?");
-const uppers = new letters("Uppercase letters?");
-const nums = new chars(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], "Numbers?");
-const symbs = new chars(["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", "'", '"', ",", ".", "<", ">", "/", "?"], "Symbols?");
 
 // Character Compiler
 function masterCompiler(){
@@ -129,9 +136,6 @@ function getCharacter(word){
 
 // Repeater Functions
 
-let isRepeat = true;
-let isRepeatAdjascent = true;
-
 function repeater (length){
   if (!confirm("Enable repeated characters?")){
     if (confirm("Disable repeated characters: \n Entire Password[OK] \n Only adjascent Characters[Cancel]")){
@@ -164,6 +168,7 @@ function repeaterCheck(str, char){
 };
 
 function generatePassword(){
+  let pword = "";
   let passwordLength = getLength();
   while (!passwordLength){
     passwordLength = getLength();
@@ -171,7 +176,7 @@ function generatePassword(){
   if (passwordLength==="cancel"){
      return false
   };
-  let pword = "";
+  
   masterCompiler();
   repeater(passwordLength);
   for (let i=0; i<passwordLength; i++) {
