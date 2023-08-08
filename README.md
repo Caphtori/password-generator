@@ -10,4 +10,4 @@ https://caphtori.github.io/password-generator/
 
 ## Screenshots
 
-[With generated password.](./site-screenshot.png)
+[With generated password.](./assets/images/site-screenshot.png)
