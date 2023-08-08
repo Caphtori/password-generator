@@ -27,10 +27,10 @@ class letters{
   }
 };
 
-const lowers = new letters("Lowercase letters?");
-const uppers = new letters("Uppercase letters?");
-const nums = new chars(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], "Numbers?");
-const symbs = new chars(["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", "'", '"', ",", ".", "<", ">", "/", "?"], "Symbols?");
+const lowers = new letters("Lowercase letters");
+const uppers = new letters("Uppercase letters");
+const nums = new chars(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], "Numbers");
+const symbs = new chars(["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", "'", '"', ",", ".", "<", ">", "/", "?"], "Symbols");
 
 let isRepeat = true;
 let isRepeatAdjascent = true;
@@ -89,9 +89,13 @@ function getLength(){
 function masterCompiler(){
   let charset = [lowers, uppers, nums, symbs];
   for (let i=0; i<charset.length; i++){
-    if (confirm(charset[i].label)){
+    if (confirm(charset[i].label+"?")){
       masterArray.add(charset[i]);
-    };
+      window.alert(charset[i].label+" enabled.");
+    } else {
+      window.alert(charset[i].label+" disabled.");
+    }
+    
   };
   if (masterArray.components.length<1){
     window.alert("ERROR: PASSWORD MUST INCLUDE AT LEAST 1 CHARACTER TYPE.");
