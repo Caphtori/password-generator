@@ -158,3 +158,24 @@ function repeaterCheck(str, char){
   return true;
   
 };
+
+function generatePassword(){
+  let passwordLength = getLength();
+  while (!passwordLength){
+    passwordLength = getLength();
+  };
+  if (passwordLength==="cancel"){
+     return false
+  };
+  let pword = "";
+  masterCompiler();
+  repeater(passwordLength);
+  for (let i=0; i<passwordLength; i++) {
+    let pchar = false;
+    while (!pchar){
+      pchar = getCharacter(pword);
+    };
+    pword = pword+pchar;
+  }
+  return pword;
+};
