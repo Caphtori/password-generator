@@ -74,6 +74,7 @@ const uppers = new letters("Uppercase letters?");
 const nums = new chars(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], "Numbers?");
 const symbs = new chars(["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", "'", '"', ",", ".", "<", ">", "/", "?"], "Symbols?");
 
+// Character Compiler
 function masterCompiler(){
   let charset = [lowers, uppers, nums, symbs];
   for (let i=0; i<charset.length; i++){
@@ -81,7 +82,13 @@ function masterCompiler(){
       masterArray.add(charset[i]);
     };
   };
-  return
+  if (masterArray.components.length<1){
+    window.alert("ERROR: PASSWORD MUST INCLUDE AT LEAST 1 CHARACTER TYPE.");
+    masterCompiler()
+  } else{
+    return;
+  };
+  
 };
 
 function coinflip(){
