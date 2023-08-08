@@ -6,6 +6,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  masterArray.clear();
+  if (!password){
+    return;
+  }
   passwordText.value = password;
 
 }
